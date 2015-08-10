@@ -1,3 +1,7 @@
+## 2015-8-15 by FuZhenn
+
+use fastjson insteadof jackson to parse json, performance improved for about 2 times.
+
 ## Introduction
 
 This Java library can convert JTS geometries to GeoJSON and back. Its API is similar to other io.* classes in JTS.
