@@ -1,6 +1,6 @@
-package org.wololo.jts2geojson;
+package org.maptalks.jts2geojson;
 
-import org.wololo.geojson.*;
+import org.maptalks.geojson.*;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Geometry;
