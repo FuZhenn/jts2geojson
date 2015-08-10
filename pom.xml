@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.wololo</groupId>
+	<groupId>org.maptalks</groupId>
 	<artifactId>jts2geojson</artifactId>
-	<version>0.5.1</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>jts2geojson</name>
-	<description>JTS to GeoJSON converter</description>
-	<url>https://github.com/bjornharrtell/jts2geojson</url>
+	<description>originally from bjornharrtell: JTS to GeoJSON converter</description>
+	<url>https://github.com/MapTalks/jts2geojson</url>
 
 	<licenses>
 		<license>
@@ -17,15 +17,19 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/bjornharrtell/jts2geojson</url>
-		<connection>scm:git:https://github.com/bjornharrtell/jts2geojson.git</connection>
-		<developerConnection>scm:git:https://github.com/bjornharrtell/jts2geojson.git</developerConnection>
+		<url>https://github.com/MapTalks/jts2geojson</url>
+		<connection>scm:git:https://github.com/MapTalks/jts2geojson.git</connection>
+		<developerConnection>scm:git:https://github.com/MapTalks/jts2geojson.git</developerConnection>
 	</scm>
 
 	<developers>
 		<developer>
 			<id>bjornharrtell</id>
 			<name>Björn Harrtell</name>
+		</developer>
+		<developer>
+			<id>FuZhenn</id>
+			<name>Fu Zhen</name>
 		</developer>
 	</developers>
 	
@@ -40,7 +44,7 @@
 	</parent>
 
 	<dependencies>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
 			<version>2.11.6</version>
@@ -51,13 +55,18 @@
 			<artifactId>scalatest_2.11</artifactId>
 			<version>2.2.5</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>com.vividsolutions</groupId>
 			<artifactId>jts</artifactId>
 			<version>1.13</version>
 		</dependency>
 		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+		<!--<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.5.3</version>
@@ -66,7 +75,7 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.5.3</version>
-		</dependency>
+		</dependency>-->
 	</dependencies>
 
 	<distributionManagement>
