@@ -1,6 +1,8 @@
 ## 2015-8-15 by FuZhenn
 
-use fastjson insteadof jackson to parse json, performance improved for about 2 times.
+thanks to bjornharrtell's work: https://github.com/bjornharrtell/jts2geojson
+
+use fastjson instead of jackson to parse json, performance improved for about 2 times.
 
 ## Introduction
 
