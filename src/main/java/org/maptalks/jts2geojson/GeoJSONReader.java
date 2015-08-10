@@ -30,9 +30,20 @@ public class GeoJSONReader {
             return convert((MultiLineString) geoJSON);
         } else if (geoJSON instanceof MultiPolygon) {
             return convert((MultiPolygon) geoJSON);
+        } else if (geoJSON instanceof GeometryCollection) {
+            return convert((GeometryCollection) geoJSON);
         } else {
             throw new UnsupportedOperationException();
         }
+    }
+
+    Geometry convert(GeometryCollection geoJSON) {
+        org.maptalks.geojson.Geometry[] geometries = geoJSON.getGeometries();
+        Geometry[] collection = new Geometry[geometries.length];
+        for (int i = 0; i < geometries.length; i++) {
+            collection[i] = read(geometries[i]);
+        }
+        return factory.createGeometryCollection(collection);
     }
 
     Geometry convert(Point point) {

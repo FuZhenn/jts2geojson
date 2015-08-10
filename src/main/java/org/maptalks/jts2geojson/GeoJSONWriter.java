@@ -12,11 +12,10 @@ import com.vividsolutions.jts.geom.MultiPoint;
 import com.vividsolutions.jts.geom.MultiPolygon;
 import com.vividsolutions.jts.geom.Point;
 import com.vividsolutions.jts.geom.Polygon;
+import com.vividsolutions.jts.geom.GeometryCollection;
 
 public class GeoJSONWriter {
 
-    final static GeoJSONReader reader = new GeoJSONReader();
-        
     public org.maptalks.geojson.Geometry write(Geometry geometry) {
         Class<? extends Geometry> c = geometry.getClass();
         if (c.equals(Point.class)) {
@@ -31,11 +30,22 @@ public class GeoJSONWriter {
             return convert((MultiLineString) geometry);
         } else if (c.equals(MultiPolygon.class)) {
             return convert((MultiPolygon) geometry);
+        } else if (c.equals(GeometryCollection.class)) {
+            return convert((GeometryCollection) geometry);
         } else {
             throw new UnsupportedOperationException();
         }
     }
-    
+
+    private org.maptalks.geojson.Geometry convert(GeometryCollection geometry) {
+        int size = geometry.getNumGeometries();
+        org.maptalks.geojson.Geometry[] geometries = new org.maptalks.geojson.Geometry[size];
+        for (int i=0;i<size;i++) {
+            geometries[i] = write(geometry.getGeometryN(i));
+        }
+        return new org.maptalks.geojson.GeometryCollection(geometries);
+    }
+
     public org.maptalks.geojson.FeatureCollection write(List<Feature> features) {
         int size = features.size();
         org.maptalks.geojson.Feature[] featuresJson = new org.maptalks.geojson.Feature[size];

@@ -1,7 +1,11 @@
-package org.maptalks.geojson;
+package org.maptalks.jts2geojson;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.maptalks.geojson.Feature;
+import org.maptalks.geojson.FeatureCollection;
+import org.maptalks.geojson.GeoJSON;
+import org.maptalks.geojson.Geometry;
 
 
 public class GeoJSONFactory {
